@@ -1,0 +1,28 @@
+/* Add your custom styles here */
+
+/* Example for the flex container and items */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .flex-item {
+    flex: 0 0 30%; /* Adjust as needed */
+  }
+  
+  /* Example for the photo gallery using CSS Grid */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px; /* Adjust as needed */
+  }
+  
+  /* Example for the Bootstrap cards */
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+
+  

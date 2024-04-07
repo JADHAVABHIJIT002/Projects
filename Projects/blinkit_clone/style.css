@@ -1,0 +1,174 @@
+.vertical_line {
+  height: 80px;
+  border: 1px solid lightgray;
+}
+
+#search_bar {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 45%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+#search_bar > input {
+  border: none;
+  width: 95%;
+  background-color: transparent;
+}
+.my_cards {
+  width: 85%;
+  margin: auto;
+  overflow-x: scroll;
+}
+#categories_section {
+  width: 85%;
+  margin: auto;
+}
+.my_list{
+    white-space: nowrap;
+}
+.my_list>img{
+    display: inline-block;
+}
+.category_section{
+    width: 85%;
+    margin: auto;
+    overflow-x: scroll;
+}
+
+.my_card{
+    width: 200px;
+    display: inline-block !important;
+    margin-inline: 10px;
+}
+
+.card_timer{
+    font-size: 9px;
+    font-weight: 700;
+    background-color: #f8f8f8;
+    width: fit-content;
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+.card_weight{
+    font-size: 10px;
+    color: #898989;
+}
+
+footer{
+    width: 85%;
+    margin: auto;
+}
+#footer_row1{
+    display: flex;
+    justify-content: space-between;
+}
+
+#table_1{
+    flex: 1;
+}
+#table_2{
+    flex: 2;
+}
+#footer_row2{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+#footer_row2>p{
+    width: 35%;
+    font-size: 13px;
+    color: #717171;
+}
+#footer_row3{
+    color: #717171;
+}
+
+#downloads_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: #838383;
+    font-weight: 700;
+}
+
+#downloads_section>img{
+    width: 100px;
+}
+
+#social_icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.social_icon{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    color: #838383;
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+
+@media screen and (max-width: 500px){
+    nav{
+        flex-direction: column;
+        padding: 10px;
+    }
+    #search_bar{
+        width: 100%;
+    }
+
+    #search_bar>input{
+        width: 90%;
+    }
+    .vertical_line{
+        display: none;
+    }
+    #hero_section{
+        display: none !important;
+    }
+    .my_cards{
+        margin-top: 20px;
+    }
+    #footer_row1{
+        flex-direction: column;
+        align-items: center;
+    }
+    td{
+        text-align: center;
+    }
+    #table_1,#table_2{
+        width: 100%;
+        margin-top: 20px;
+    }
+    #footer_row2{
+        flex-direction: column;
+        align-items: center;
+    }
+    #footer_row2>p{
+        width: 100%;
+    }
+    #social_icons{
+        margin-top: 15px;
+    }
+    #footer_row3{
+        text-align: justify;
+    }
+}
+

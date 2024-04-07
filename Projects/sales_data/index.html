@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="code" href="Code.js">
+  <title>Customer Connection Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    #importButton, #exportButton {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Customer Connection Checker</h1>
+
+<input type="text" id="customerPhone" placeholder="Enter customer's phone number">
+<button onclick="checkConnection()">Check Connection</button>
+
+<p id="result"></p>
+
+<input type="file" id="fileInput" accept=".csv">
+<button id="importButton" onclick="importData()">Import Data</button>
+<button id="exportButton" onclick="exportData()">Export Data</button>
+
+<script>
+  function checkConnection() {
+    var customerPhone = document.getElementById("customerPhone").value.trim();
+    if (customerPhone === "") {
+      alert("Please enter a customer's phone number.");
+      return;
+    }
+    
+    google.script.run.withSuccessHandler(displayResult).checkConnection(customerPhone);
+  }
+
+  function displayResult(result) {
+    document.getElementById("result").textContent = result;
+  }
+
+  function importData() {
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var contents = event.target.result;
+      google.script.run.importData(contents, file.name);
+    };
+    reader.readAsText(file);
+  }
+
+  function exportData() {
+    google.script.run.exportData();
+  }
+</script>
+
+</body>
+</html>

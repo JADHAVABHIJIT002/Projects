@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator & Size Converter</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form id="calculatorForm">
+        <label for="num1">Number 1:</label><br>
+        <input type="number" id="num1" name="num1" required><br>
+        
+        <label for="operator">Operator:</label>
+        <select id="operator" name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br>
+        
+        <label for="num2">Number 2:</label><br>
+        <input type="number" id="num2" name="num2" required><br>
+        
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="calcResult"></div>
+
+    <hr>
+
+    <h1>Size Converter</h1>
+    <form id="converterForm">
+        <label for="inputSize">Enter Size:</label><br>
+        <input type="number" id="inputSize" name="inputSize" step="0.01" required>
+        
+        <label for="inputUnit">Unit:</label>
+        <select id="inputUnit" name="inputUnit">
+            <option value="inches">Inches</option>
+            <option value="centimeters">Centimeters</option>
+        </select><br>
+        
+        <label for="outputUnit">Convert to:</label>
+        <select id="outputUnit" name="outputUnit">
+            <option value="inches">Inches</option>
+            <option value="centimeters">Centimeters</option>
+        </select><br>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    <div id="sizeConverterResult"></div>
+
+    <script>
+        // Calculator
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const operator = document.getElementById('operator').value;
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            let result;
+            switch(operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = 'Invalid operator';
+            }
+
+            document.getElementById('calcResult').textContent = `Result: ${result}`;
+        });
+
+        // Size Converter
+        document.getElementById('converterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const inputSize = parseFloat(document.getElementById('inputSize').value);
+            const inputUnit = document.getElementById('inputUnit').value;
+            const outputUnit = document.getElementById('outputUnit').value;
+
+            let result;
+            if (inputUnit === 'inches' && outputUnit === 'centimeters') {
+                result = inputSize * 2.54;
+            } else if (inputUnit === 'centimeters' && outputUnit === 'inches') {
+                result = inputSize / 2.54;
+            } else {
+                result = inputSize; // No conversion needed
+            }
+
+            document.getElementById('sizeConverterResult').textContent = `Result: ${result.toFixed(2)} ${outputUnit}`;
+        });
+    </script>
+</body>
+</html>
